@@ -8,7 +8,10 @@ module Luhn
     check_sum += odd
     next unless even
     even *= 2
-    even = even.divmod(10).inject(:+) if even > 9
+
+    #even = even.divmod(10).inject(:+) if even > 9
+    even = even - 9 if even >= 10 
+
     check_sum += even
   end
 
